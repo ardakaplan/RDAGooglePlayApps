@@ -4,6 +4,7 @@
     package="com.ardakaplan.rdagoogleplayapps">
 
     <application
+        android:name=".TestApplication"
         android:allowBackup="false"
         android:icon="@drawable/icon_logo"
         android:label="@string/app_name"
@@ -11,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
