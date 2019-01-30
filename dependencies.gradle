@@ -28,55 +28,23 @@ ext {
 
     //RDA LIBS NAME
     RDA_LIB_AAR_NAME = "/RDALibrary-debug.aar"
+    RDA_GOOGLE_PLAY_APPS_LIB_AAR_NAME = "/RDAGooglePlayAppsLib-debug.aar"
 
     //RDA LIBS VERSION
     rda_logger_version = "1.0.0"
+    rda_lib_version = "withDagger-SNAPSHOT"
+    rda_google_play_apps_lib_version = "1.0.0"
 
     //FILE EXISTANCE
     rda_lib_exists = file(devDir + RDA_LIB_AAR_NAME).exists()
+    rda_google_play_apps_lib_exists = file(devDir + RDA_GOOGLE_PLAY_APPS_LIB_AAR_NAME).exists()
 
     //USE LOCAL ADJUSTMENT
     use_local = true
 
     use_rda_lib_local = use_local && rda_lib_exists
+    use_rda_google_play_apps_lib_local = use_local && rda_google_play_apps_lib_exists
 }
-
-//task('clearDpendencyCache', type: Delete, group: 'MyGroup',
-//        description: "Deletes any cached artifacts with the domain of com.matriks.internal in the Gradle cache directory.") {
-//    doLast {
-//        if (devDir != null) {
-//
-//            def userHome = System.getProperty('user.home')
-//            def baseCashPath = "${userHome}/.gradle/caches/modules-2/files-2.1/"
-//
-//            def baseDir = new File(baseCashPath)
-//
-//            println('Find cached libs')
-//            def fileList = []
-//            baseDir.eachDir { file ->
-//                if (file.name.startsWith('com.matriks')) {
-//                    fileList.add(file)
-//                }
-//            }
-//
-//            println('Delete all cached libs')
-//            fileList.each {
-//                it.deleteDir()
-//            }
-//
-//
-//            println('Delete idea libraries')
-//            new File(".idea/libraries").eachFile(FileType.FILES) { file ->
-//                if (file.name.contains('com_matriks_internal')) {
-//                    file.delete()
-//                }
-//            }
-//        }
-//    }
-//
-//}
-
-//clean.dependsOn clearDpendencyCache
 
 
 

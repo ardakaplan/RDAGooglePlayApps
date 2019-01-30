@@ -26,6 +26,9 @@ android {
 
 dependencies {
 
+    //RDA LIB
+    implementation "com.github.ardakaplan:RDALibrary:$rda_lib_version"
+
     //DAGGER
     compileOnly "com.google.dagger:dagger:$dagger_version"
     compileOnly "com.google.dagger:dagger-android-support:$dagger_version"
