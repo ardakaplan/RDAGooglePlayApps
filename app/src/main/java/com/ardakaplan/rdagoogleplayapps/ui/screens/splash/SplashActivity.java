@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.ardakaplan.rdagoogleplayapps.R;
-import com.ardakaplan.rdagoogleplayappslib.tradeMenu.TradeMenuBusinessView;
-import com.ardakaplan.rdagoogleplayappslib.tradeMenu.TradeMenuViewHolder;
+import com.ardakaplan.rdagoogleplayapps.ui.screens.rdaapps.RDAAppsActivity;
 import com.ardakaplan.rdalibrary.base.ui.screen.RDAActivity;
+import com.ardakaplan.rdalibrary.helpers.RDAIntentHelpers;
 
 import javax.inject.Inject;
 
@@ -17,7 +17,7 @@ public class SplashActivity extends RDAActivity implements SplashContract.Splash
     SplashContract.SplashPresenterContract presenter;
 
     @Inject
-    TradeMenuBusinessView<TradeMenuViewHolder> tradeMenuBusinessView;
+    RDAIntentHelpers rdaIntentHelpers;
 
 
     @SuppressLint("MissingSuperCall")
@@ -28,8 +28,7 @@ public class SplashActivity extends RDAActivity implements SplashContract.Splash
 
         presenter.attach(this);
 
-        tradeMenuBusinessView.onViewCreated(findViewById(R.id.aaaa));
-
+        startActivity(rdaIntentHelpers.getClearCacheIntent(RDAAppsActivity.class));
 
     }
 

@@ -23,5 +23,7 @@ public class RDAAppsActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.rda_apps_activity);
+
+        rdaApplicationsView.onViewCreated(findViewById(R.id.rdaAppsActivity_linearLayout_container));
     }
 }

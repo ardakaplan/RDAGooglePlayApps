@@ -35,7 +35,7 @@ public class RDAApplicationsRecyclerViewAdapter extends RDARecyclerViewAdapter<R
 
     @Override
     protected int getItemLayout() {
-        return R.layout.rda_application_view_item;
+        return R.layout.rda_application_view_item_lib;
     }
 
     class RDAGooglePlayApplicationViewHolder extends RecyclerView.ViewHolder {

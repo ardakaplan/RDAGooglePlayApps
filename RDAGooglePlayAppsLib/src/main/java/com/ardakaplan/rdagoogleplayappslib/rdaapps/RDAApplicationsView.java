@@ -1,5 +1,8 @@
 package com.ardakaplan.rdagoogleplayappslib.rdaapps;
 
+import android.support.annotation.LayoutRes;
+import android.support.v7.widget.RecyclerView;
+
 import com.ardakaplan.rdagoogleplayappslib.R;
 import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
 import com.ardakaplan.rdagoogleplayappslib.base.BusinessView;
@@ -16,6 +19,11 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
     private RDAApplicationsContract.Presenter presenter;
     private RDAApplicationsRecyclerViewAdapter rdaApplicationsRecyclerViewAdapter;
 
+    private RecyclerView.ItemDecoration itemDecoration;
+
+    private @LayoutRes
+    int itemLayoutId;
+
     @Inject
     public RDAApplicationsView(VH viewHolder, RDAApplicationsContract.Presenter presenter, RDAApplicationsRecyclerViewAdapter rdaApplicationsRecyclerViewAdapter) {
         super(viewHolder);
@@ -26,7 +34,7 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
 
     @Override
     protected int getLayout() {
-        return R.layout.rda_application_view;
+        return R.layout.rda_application_view_lib;
     }
 
     @Override
@@ -37,9 +45,32 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
         presenter.attach(this);
     }
 
+    public void setItemDecoration(RecyclerView.ItemDecoration itemDecoration) {
+        this.itemDecoration = itemDecoration;
+    }
+
+    public void setItemLayoutId(int itemLayoutId) {
+        this.itemLayoutId = itemLayoutId;
+    }
+
     private void setRecyclerView() {
 
+        if (itemDecoration != null) {
+
+            getViewHolder().getRecyclerView().addItemDecoration(itemDecoration);
+        }
+
         getViewHolder().getRecyclerView().setAdapter(rdaApplicationsRecyclerViewAdapter);
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
     }
 
     @Override
