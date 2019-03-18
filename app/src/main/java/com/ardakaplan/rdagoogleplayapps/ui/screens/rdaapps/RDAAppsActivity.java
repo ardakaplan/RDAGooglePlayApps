@@ -3,6 +3,8 @@ package com.ardakaplan.rdagoogleplayapps.ui.screens.rdaapps;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DividerItemDecoration;
 
 import com.ardakaplan.rdagoogleplayapps.R;
 import com.ardakaplan.rdagoogleplayapps.ui.BaseActivity;
@@ -23,6 +25,15 @@ public class RDAAppsActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.rda_apps_activity);
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
+
+        //noinspection ConstantConditions
+        itemDecorator.setDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.divider));
+
+        rdaApplicationsView.setItemDecoration(itemDecorator);
+
+        rdaApplicationsView.setItemLayoutId(R.layout.rda_application_view_item);
 
         rdaApplicationsView.onViewCreated(findViewById(R.id.rdaAppsActivity_linearLayout_container));
     }

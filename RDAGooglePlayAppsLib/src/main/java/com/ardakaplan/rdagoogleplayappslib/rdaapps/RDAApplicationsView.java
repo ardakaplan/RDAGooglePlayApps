@@ -22,14 +22,13 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
     private RecyclerView.ItemDecoration itemDecoration;
 
     private @LayoutRes
-    int itemLayoutId;
+    Integer itemLayoutId;
 
     @Inject
     public RDAApplicationsView(VH viewHolder, RDAApplicationsContract.Presenter presenter, RDAApplicationsRecyclerViewAdapter rdaApplicationsRecyclerViewAdapter) {
         super(viewHolder);
         this.presenter = presenter;
         this.rdaApplicationsRecyclerViewAdapter = rdaApplicationsRecyclerViewAdapter;
-
     }
 
     @Override
@@ -49,7 +48,7 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
         this.itemDecoration = itemDecoration;
     }
 
-    public void setItemLayoutId(int itemLayoutId) {
+    public void setItemLayoutId(Integer itemLayoutId) {
         this.itemLayoutId = itemLayoutId;
     }
 
@@ -58,6 +57,11 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
         if (itemDecoration != null) {
 
             getViewHolder().getRecyclerView().addItemDecoration(itemDecoration);
+        }
+
+        if (itemLayoutId != null) {
+
+            rdaApplicationsRecyclerViewAdapter.setItemLayoutId(itemLayoutId);
         }
 
         getViewHolder().getRecyclerView().setAdapter(rdaApplicationsRecyclerViewAdapter);

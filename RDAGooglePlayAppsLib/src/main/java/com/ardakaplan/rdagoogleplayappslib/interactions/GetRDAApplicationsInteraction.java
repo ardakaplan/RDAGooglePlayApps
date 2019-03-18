@@ -46,5 +46,28 @@ public class GetRDAApplicationsInteraction extends RDAInteraction<RDAInteraction
 
         return rdaGooglePlayApplications;
     }
+
+
+    private List<RDAGooglePlayApplication> getLocalData() {
+
+        List<RDAGooglePlayApplication> list = new ArrayList<>();
+
+
+        list.add(new RDAGooglePlayApplication(1,
+                "Bebeğim",
+                "My Baby",
+                "com.ardakaplan.mybaby",
+                0,
+                "Bebeklerinizi ekleyin; anılarını ve aşılarını takip edin. Anı kartı oluşturun ve paylaşın.",
+                "Add you babies, theirs memories and injections. Create sharable cards.",
+                "",
+                0));
+
+//        com.ardroid.allaboutus
+
+
+        return list;
+
+    }
 }
 

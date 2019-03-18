@@ -10,6 +10,8 @@ import java.io.Serializable;
  */
 public class RDAGooglePlayApplication extends RDAObject implements Serializable {
 
+    @SerializedName("index")
+    private int index;
     @SerializedName("name_turkish")
     private String nameTurkish;
     @SerializedName("name_english")
@@ -24,12 +26,15 @@ public class RDAGooglePlayApplication extends RDAObject implements Serializable 
     private String descriptionEnglish;
     @SerializedName("icon_url")
     private String iconUrl;
+    @SerializedName("drawable_id")
+    private int drawableId;
 
     public RDAGooglePlayApplication() {
 
     }
 
-    public RDAGooglePlayApplication(String nameTurkish, String nameEnglish, String packageName, int version, String descriptionTurkish, String descriptionEnglish, String iconUrl) {
+    public RDAGooglePlayApplication(int index, String nameTurkish, String nameEnglish, String packageName, int version, String descriptionTurkish, String descriptionEnglish, String iconUrl, int drawableId) {
+        this.index = index;
         this.nameTurkish = nameTurkish;
         this.nameEnglish = nameEnglish;
         this.packageName = packageName;
@@ -37,6 +42,23 @@ public class RDAGooglePlayApplication extends RDAObject implements Serializable 
         this.descriptionTurkish = descriptionTurkish;
         this.descriptionEnglish = descriptionEnglish;
         this.iconUrl = iconUrl;
+        this.drawableId = drawableId;
+    }
+
+    public int getDrawableId() {
+        return drawableId;
+    }
+
+    public void setDrawableId(int drawableId) {
+        this.drawableId = drawableId;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     public String getIconUrl() {
