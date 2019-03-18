@@ -1,7 +1,10 @@
 package com.ardakaplan.rdagoogleplayappslib.rdaapps;
 
 import com.ardakaplan.rdagoogleplayappslib.R;
+import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
 import com.ardakaplan.rdagoogleplayappslib.base.BusinessView;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -12,7 +15,6 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
 
     private RDAApplicationsContract.Presenter presenter;
     private RDAApplicationsRecyclerViewAdapter rdaApplicationsRecyclerViewAdapter;
-
 
     @Inject
     public RDAApplicationsView(VH viewHolder, RDAApplicationsContract.Presenter presenter, RDAApplicationsRecyclerViewAdapter rdaApplicationsRecyclerViewAdapter) {
@@ -30,6 +32,20 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
     @Override
     public void onViewHolderCreated(VH viewHolder) {
 
+        setRecyclerView();
+
+        presenter.attach(this);
+    }
+
+    private void setRecyclerView() {
+
+        getViewHolder().getRecyclerView().setAdapter(rdaApplicationsRecyclerViewAdapter);
+    }
+
+    @Override
+    public void showRDAGooglePlayApplications(List<RDAGooglePlayApplication> rdaGooglePlayApplications) {
+
+        rdaApplicationsRecyclerViewAdapter.setData(rdaGooglePlayApplications);
     }
 
     @Override
@@ -37,5 +53,4 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends B
         super.onViewDestroyed();
         presenter.detach();
     }
-
 }
