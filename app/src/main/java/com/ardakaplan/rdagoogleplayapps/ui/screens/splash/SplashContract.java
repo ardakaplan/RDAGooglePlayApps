@@ -1,4 +1,4 @@
-package com.ardakaplan.rdagoogleplayapps.splash;
+package com.ardakaplan.rdagoogleplayapps.ui.screens.splash;
 
 import com.ardakaplan.rdalibrary.base.ui.screen.RDAPresenterContract;
 import com.ardakaplan.rdalibrary.base.ui.screen.RDAViewContract;

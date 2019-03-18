@@ -1,7 +1,7 @@
-package com.ardakaplan.rdagoogleplayapps.di.modules;
+package com.ardakaplan.rdagoogleplayapps.ui.screens.splash;
 
-import com.ardakaplan.rdagoogleplayapps.splash.SplashContract;
-import com.ardakaplan.rdagoogleplayapps.splash.SplashPresenter;
+import com.ardakaplan.rdagoogleplayapps.ui.screens.splash.SplashContract;
+import com.ardakaplan.rdagoogleplayapps.ui.screens.splash.SplashPresenter;
 
 import dagger.Binds;
 import dagger.Module;

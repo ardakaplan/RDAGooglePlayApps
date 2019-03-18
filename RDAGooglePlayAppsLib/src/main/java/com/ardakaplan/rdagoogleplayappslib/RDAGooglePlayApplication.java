@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * Created by Arda Kaplan on 30-Jan-19 - 11:45
  */
-public class RDAGooglePlayApp extends RDAObject implements Serializable {
+public class RDAGooglePlayApplication extends RDAObject implements Serializable {
 
     @SerializedName("name_turkish")
     private String nameTurkish;
@@ -24,6 +24,20 @@ public class RDAGooglePlayApp extends RDAObject implements Serializable {
     private String descriptionEnglish;
     @SerializedName("icon_url")
     private String iconUrl;
+
+    public RDAGooglePlayApplication() {
+
+    }
+
+    public RDAGooglePlayApplication(String nameTurkish, String nameEnglish, String packageName, int version, String descriptionTurkish, String descriptionEnglish, String iconUrl) {
+        this.nameTurkish = nameTurkish;
+        this.nameEnglish = nameEnglish;
+        this.packageName = packageName;
+        this.version = version;
+        this.descriptionTurkish = descriptionTurkish;
+        this.descriptionEnglish = descriptionEnglish;
+        this.iconUrl = iconUrl;
+    }
 
     public String getIconUrl() {
         return iconUrl;

@@ -1,16 +1,13 @@
-package com.ardakaplan.rdagoogleplayapps.splash;
+package com.ardakaplan.rdagoogleplayappslib.tradeMenu;
 
 import com.ardakaplan.rdalibrary.base.ui.screen.RDAPresenter;
 
 import javax.inject.Inject;
 
-public class SplashPresenter extends RDAPresenter<SplashContract.SplashViewContract> implements SplashContract.SplashPresenterContract {
-
+public class TradeMenuPresenter extends RDAPresenter<TradeMenuContract.View> implements TradeMenuContract.Presenter {
 
     @Inject
-    public SplashPresenter() {
-
-
+    public TradeMenuPresenter() {
     }
 
     @Override
@@ -22,6 +19,4 @@ public class SplashPresenter extends RDAPresenter<SplashContract.SplashViewContr
     protected void onDetached() {
 
     }
-
-
 }

@@ -49,9 +49,6 @@ dependencies {
         //RDA-LOGGER
         compileOnly "com.github.ardakaplan:RDALogger:$rda_logger_version"
 
-        //GSON
-        compileOnly "com.google.code.gson:gson:$gson_version"
-
         //BUTTER KNIFE
         compileOnly "com.jakewharton:butterknife:$butter_knife_version"
 

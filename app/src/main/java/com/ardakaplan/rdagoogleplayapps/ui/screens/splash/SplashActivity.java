@@ -1,27 +1,23 @@
-package com.ardakaplan.rdagoogleplayapps.splash;
+package com.ardakaplan.rdagoogleplayapps.ui.screens.splash;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.Button;
 
 import com.ardakaplan.rdagoogleplayapps.R;
+import com.ardakaplan.rdagoogleplayappslib.tradeMenu.TradeMenuBusinessView;
+import com.ardakaplan.rdagoogleplayappslib.tradeMenu.TradeMenuViewHolder;
 import com.ardakaplan.rdalibrary.base.ui.screen.RDAActivity;
-import com.ardakaplan.rdalogger.RDALogger;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.OnClick;
-
 public class SplashActivity extends RDAActivity implements SplashContract.SplashViewContract {
-
-
-    @BindView(R.id.button_test)
-    Button testButton;
 
     @Inject
     SplashContract.SplashPresenterContract presenter;
+
+    @Inject
+    TradeMenuBusinessView<TradeMenuViewHolder> tradeMenuBusinessView;
 
 
     @SuppressLint("MissingSuperCall")
@@ -32,12 +28,9 @@ public class SplashActivity extends RDAActivity implements SplashContract.Splash
 
         presenter.attach(this);
 
-    }
+        tradeMenuBusinessView.onViewCreated(findViewById(R.id.aaaa));
 
-    @OnClick(R.id.button_test)
-    void test() {
 
-        RDALogger.info("TEST");
     }
 
     @Override
