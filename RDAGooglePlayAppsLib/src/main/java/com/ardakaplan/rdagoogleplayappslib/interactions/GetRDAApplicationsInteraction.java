@@ -1,10 +1,20 @@
 package com.ardakaplan.rdagoogleplayappslib.interactions;
 
+import android.content.Context;
+
 import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteraction;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteractionResult;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteractionResultListener;
+import com.ardakaplan.rdalibrary.helpers.RDAJsonHelpers;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,59 +25,47 @@ import javax.inject.Inject;
  */
 public class GetRDAApplicationsInteraction extends RDAInteraction<RDAInteractionResult.Empty, List<RDAGooglePlayApplication>> {
 
+    private Context context;
 
     @Inject
-    GetRDAApplicationsInteraction() {
+    GetRDAApplicationsInteraction(Context context) {
 
+        this.context = context;
     }
 
     @Override
     public void execute(RDAInteractionResultListener<List<RDAGooglePlayApplication>> rdaInteractionResultListener) {
 
+        String source = loadAppsFromLocale();
 
-        rdaInteractionResultListener.onResult(new RDAInteractionResult<>(getApplicationsFromLocal()));
+        Type collectionType = new TypeToken<List<RDAGooglePlayApplication>>() {
+        }.getType();
+
+        ArrayList<RDAGooglePlayApplication> objects = (ArrayList<RDAGooglePlayApplication>) RDAJsonHelpers.jsonToList(source, collectionType);
+
+
+        rdaInteractionResultListener.onResult(new RDAInteractionResult<>(objects));
     }
 
-    private ArrayList<RDAGooglePlayApplication> getApplicationsFromLocal() {
+    public String loadAppsFromLocale() {
+        String tContents = "";
 
-        ArrayList<RDAGooglePlayApplication> rdaGooglePlayApplications = new ArrayList<>();
+        try {
+            InputStream stream = context.getAssets().open("apps.json");
 
-        for (int i = 0; i < 20; i++) {
-
-            RDAGooglePlayApplication rdaGooglePlayApplication = new RDAGooglePlayApplication();
-
-            rdaGooglePlayApplication.setNameTurkish("TURKÇE " + i);
-            rdaGooglePlayApplication.setNameTurkish("ENGLISH  " + i);
-            rdaGooglePlayApplication.setDescriptionTurkish("açıklama " + i);
-            rdaGooglePlayApplication.setDescriptionTurkish("desc " + i);
-
-            rdaGooglePlayApplications.add(rdaGooglePlayApplication);
+            int size = stream.available();
+            byte[] buffer = new byte[size];
+            stream.read(buffer);
+            stream.close();
+            tContents = new String(buffer);
+        } catch (IOException e) {
+            // Handle exceptions here
         }
 
-        return rdaGooglePlayApplications;
-    }
-
-
-    private List<RDAGooglePlayApplication> getLocalData() {
-
-        List<RDAGooglePlayApplication> list = new ArrayList<>();
-
-
-        list.add(new RDAGooglePlayApplication(1,
-                "Bebeğim",
-                "My Baby",
-                "com.ardakaplan.mybaby",
-                0,
-                "Bebeklerinizi ekleyin; anılarını ve aşılarını takip edin. Anı kartı oluşturun ve paylaşın.",
-                "Add you babies, theirs memories and injections. Create sharable cards.",
-                "",
-                0));
-
-//        com.ardroid.allaboutus
-
-
-        return list;
+        return tContents;
 
     }
+
+
 }
 

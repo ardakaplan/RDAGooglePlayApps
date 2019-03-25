@@ -1,0 +1,132 @@
+[
+  {
+    "index":1,
+    "name_turkish":"Bebeğim",
+    "name_english":"My Baby",
+    "package_name":"com.ardakaplan.mybaby",
+    "version":-1,
+    "description_turkish":"Bebeklerinizi ekleyin; anılarını ve aşılarını takip edin. Anı kartı oluşturun ve paylaşın.",
+    "description_english":"Add you babies, theirs memories and injections. Create sharable cards.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/my_baby_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"Virtual English Teacher",
+    "name_english":"Virtual English Teacher",
+    "package_name":"com.ardakaplan.virtualenglishteacher",
+    "version":-1,
+    "description_turkish":"İngilizce sınavlara hazırlanan için, offline çalışabilen ingilizce test uygulaması.",
+    "description_english":"İngilizce sınavlara hazırlanan için, offline çalışabilen ingilizce test uygulaması.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/icon_virtual_english_teacher.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"Widget",
+    "name_english":"Text Widget Maker",
+    "package_name":"com.ardakaplan.virtualenglishteacher",
+    "version":-1,
+    "description_turkish":"Uygulama widget ını ekranınıza taşıyın. Uygulamaya girerek ne istiyorsanız yazın. Yazınız widget ta görüntülenecektir.",
+    "description_english":"Write whatever you want. And drag widget to your home or lock screen. Your text will be together with you.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/widget_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"TapTap",
+    "name_english":"TapTap",
+    "package_name":"com.rda.tabtab",
+    "version":-1,
+    "description_turkish":"Ekrana tıklayarak puan kazanabileceğiniz bir oyun.",
+    "description_english":"Simple and easy game . All you need to get the points, is taping the screen.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/taptap_icon.jpg"
+  },
+  {
+    "index":2,
+    "name_turkish":"Cihaz Bilgisi",
+    "name_english":"Device Info",
+    "package_name":"com.rda.deviceInfo",
+    "version":-1,
+    "description_turkish":"Cihaza ait temel bilgileri gösterir.",
+    "description_english":"Shows basic info about your device. It also provides dp and sp size.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/device_info_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"Not",
+    "name_english":"Note",
+    "package_name":"com.rda.note",
+    "version":-1,
+    "description_turkish":"Kendinize notlar yazın.",
+    "description_english":"Writing and editing note for yourself.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/note_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"İlişki Sayacı",
+    "name_english":"Relationship Time Counter",
+    "package_name":"com.ardroid.allaboutus",
+    "version":-1,
+    "description_turkish":"Ne kadar zamandır beraber olduğunuzu görün. Tarihleri girin ve geçen süreyi yıl, ay, gün, saat, dakika, saniye olarak görün. Kendinize özel bildirim üretin ve sürekli ekranda kalmasınız sağlayın.",
+    "description_english":"See how long you are together. Set your meeting, starting relationship, marriage day and than application calculates passing time for you. You can see how many years,months,days,hours,minutes.Or any date, you want. Just as you want.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/relationship_time_counter_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"Döviz Kurları",
+    "name_english":"Döviz Kurları",
+    "package_name":"com.rda.dovizkurlari",
+    "version":-1,
+    "description_turkish":"Bankalara ve serbest piyasaya ait döviz bilgileri",
+    "description_english":"Bankalara ve serbest piyasaya ait döviz bilgileri",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/doviz_kurlari_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"Karar Ver",
+    "name_english":"Decide",
+    "package_name":"com.rda.dovizkurlari",
+    "version":-1,
+    "description_turkish":"Karar vermekte zorlanıyorsanız, bırakın cevapları DECIDE bulsun.",
+    "description_english":"Ask your question and application find a answer for you.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/decide_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"QR Kod Okuyucu",
+    "name_english":"QR Code Reader",
+    "package_name":"com.rda.qrcodereader",
+    "version":-1,
+    "description_turkish":"QR kodları okur ve içerdikleri bilgileri size gösterir.",
+    "description_english":"Scans the qr codes and shows the urls.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/qr_code_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"Namaz Vakitleri",
+    "name_english":"Prayer Times",
+    "package_name":"com.ardroid.ezanvakitleri",
+    "version":-1,
+    "description_turkish":"Ülke, il, ilçe seçerek bulunduğunuz yerin namaz vakitlerini görün. İsterseniz vakitleri haftalık veya aylık olarak da görebilirsiniz.",
+    "description_english":"See prayer times buy choosing country - city - district. If you want, you can see monthly and weekly prayer times. All datas coming from http://www.diyanet.gov.tr/tr/namazvakitleri",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/namaz_vakitleri_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"Arda Kaplan",
+    "name_english":"Arda Kaplan",
+    "package_name":"com.rda.ardakaplan",
+    "version":-1,
+    "description_turkish":"Arda Kaplan kimdir ?",
+    "description_english":"Who is Arda Kaplan ?",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/arda_kaplan_icon.png"
+  },
+  {
+    "index":2,
+    "name_turkish":"Notify",
+    "name_english":"Notify",
+    "package_name":"notify_icon.png",
+    "version":-1,
+    "description_turkish":"Hatırlatma oluşturma aracı",
+    "description_english":"You can easily create notes for your own.",
+    "icon_url":"http://www.ardakaplan.com/ardroid/app_icons/arda_kaplan_icon.png"
+  }
+]

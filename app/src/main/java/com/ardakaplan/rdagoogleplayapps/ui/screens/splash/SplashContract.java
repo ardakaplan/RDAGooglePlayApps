@@ -3,14 +3,14 @@ package com.ardakaplan.rdagoogleplayapps.ui.screens.splash;
 import com.ardakaplan.rdalibrary.base.ui.screen.RDAPresenterContract;
 import com.ardakaplan.rdalibrary.base.ui.screen.RDAViewContract;
 
-public class SplashContract {
+class SplashContract {
 
-    public interface SplashViewContract extends RDAViewContract {
+    interface SplashViewContract extends RDAViewContract {
 
 
     }
 
-    public interface SplashPresenterContract extends RDAPresenterContract<SplashViewContract> {
+    interface SplashPresenterContract extends RDAPresenterContract<SplashViewContract> {
 
 
     }

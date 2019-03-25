@@ -26,14 +26,12 @@ public class RDAGooglePlayApplication extends RDAObject implements Serializable 
     private String descriptionEnglish;
     @SerializedName("icon_url")
     private String iconUrl;
-    @SerializedName("drawable_id")
-    private int drawableId;
 
     public RDAGooglePlayApplication() {
 
     }
 
-    public RDAGooglePlayApplication(int index, String nameTurkish, String nameEnglish, String packageName, int version, String descriptionTurkish, String descriptionEnglish, String iconUrl, int drawableId) {
+    public RDAGooglePlayApplication(int index, String nameTurkish, String nameEnglish, String packageName, int version, String descriptionTurkish, String descriptionEnglish, String iconUrl) {
         this.index = index;
         this.nameTurkish = nameTurkish;
         this.nameEnglish = nameEnglish;
@@ -42,15 +40,6 @@ public class RDAGooglePlayApplication extends RDAObject implements Serializable 
         this.descriptionTurkish = descriptionTurkish;
         this.descriptionEnglish = descriptionEnglish;
         this.iconUrl = iconUrl;
-        this.drawableId = drawableId;
-    }
-
-    public int getDrawableId() {
-        return drawableId;
-    }
-
-    public void setDrawableId(int drawableId) {
-        this.drawableId = drawableId;
     }
 
     public int getIndex() {
