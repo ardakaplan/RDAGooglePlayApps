@@ -32,9 +32,9 @@ public class RDAApplicationsPresenter extends RDAPresenter<RDAApplicationsContra
 
     private void getApplications() {
 
-        if (gettView() != null) {
+        if (getView() != null) {
 
-            gettView().showProgress();
+            getView().showProgress();
         }
 
         getRDAApplicationsInteraction.execute(new RDAInteractionResultListener<List<RDAGooglePlayApplication>>() {
@@ -42,11 +42,11 @@ public class RDAApplicationsPresenter extends RDAPresenter<RDAApplicationsContra
             @Override
             public void onResult(RDAInteractionResult<List<RDAGooglePlayApplication>> rdaInteractionResult) {
 
-                if (gettView() != null) {
+                if (getView() != null) {
 
-                    gettView().hideProgress();
+                    getView().hideProgress();
 
-                    gettView().showRDAGooglePlayApplications(rdaInteractionResult.getOut());
+                    getView().showRDAGooglePlayApplications(rdaInteractionResult.getOut());
                 }
             }
         });

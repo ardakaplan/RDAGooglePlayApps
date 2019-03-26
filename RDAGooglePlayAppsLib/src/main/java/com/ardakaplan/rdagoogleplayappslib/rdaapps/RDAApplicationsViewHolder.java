@@ -5,11 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.ardakaplan.rdagoogleplayappslib.R;
-import com.ardakaplan.rdagoogleplayappslib.base.BusinessViewHolder;
+import com.ardakaplan.rdalibrary.base.ui.views.custom.RDAViewHolder;
 
 import javax.inject.Inject;
 
-public class RDAApplicationsViewHolder extends BusinessViewHolder {
+public class RDAApplicationsViewHolder extends RDAViewHolder {
 
     private RecyclerView recyclerView;
 

@@ -37,6 +37,9 @@ android {
 
 dependencies {
 
+    //PICASSO
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
     //RDA LIB
     if (use_rda_lib_local) {
 
@@ -70,6 +73,9 @@ dependencies {
 
         compileOnly "com.github.ardakaplan:RDALibrary:$rda_lib_version"
     }
+
+    //RDA GOOGLE PLAY APPS
+    compileOnly "com.github.ardakaplan:RDARetrofit:$rda_retrofit_lib_version"
 
     //RETROFIT
     api "com.squareup.retrofit2:retrofit:$retrofit_version"

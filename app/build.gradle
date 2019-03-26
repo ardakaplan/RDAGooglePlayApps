@@ -73,4 +73,7 @@ dependencies {
 
         implementation "com.github.ardakaplan:RDALibrary:$rda_lib_version"
     }
+
+    //RDA GOOGLE PLAY APPS
+    implementation "com.github.ardakaplan:RDARetrofit:$rda_retrofit_lib_version"
 }

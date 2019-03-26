@@ -35,6 +35,8 @@ public class RDAAppsActivity extends BaseActivity {
 
         rdaApplicationsView.setItemLayoutId(R.layout.rda_application_view_item);
 
+        rdaApplicationsView.setInstalledAppBackgroundColorId(R.color.colorAccent);
+
         rdaApplicationsView.onViewCreated(findViewById(R.id.rdaAppsActivity_linearLayout_container));
     }
 }

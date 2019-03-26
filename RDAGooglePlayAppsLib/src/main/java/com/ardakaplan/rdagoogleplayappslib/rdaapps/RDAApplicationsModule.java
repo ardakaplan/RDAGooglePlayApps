@@ -1,7 +1,7 @@
 package com.ardakaplan.rdagoogleplayappslib.rdaapps;
 
-import com.ardakaplan.rdagoogleplayappslib.base.BusinessView;
-import com.ardakaplan.rdagoogleplayappslib.base.BusinessViewHolder;
+import com.ardakaplan.rdalibrary.base.ui.views.custom.RDAView;
+import com.ardakaplan.rdalibrary.base.ui.views.custom.RDAViewHolder;
 
 import dagger.Binds;
 import dagger.Module;
@@ -13,8 +13,8 @@ public abstract class RDAApplicationsModule {
     public abstract RDAApplicationsContract.Presenter bindsPresenter(RDAApplicationsPresenter presenter);
 
     @Binds
-    abstract BusinessViewHolder bindDefaultViewHolder(RDAApplicationsViewHolder viewHolder);
+    abstract RDAViewHolder bindDefaultViewHolder(RDAApplicationsViewHolder viewHolder);
 
     @Binds
-    abstract BusinessView<RDAApplicationsViewHolder> bindsView(RDAApplicationsView<RDAApplicationsViewHolder> view);
+    abstract RDAView<RDAApplicationsViewHolder> bindsView(RDAApplicationsView<RDAApplicationsViewHolder> view);
 }

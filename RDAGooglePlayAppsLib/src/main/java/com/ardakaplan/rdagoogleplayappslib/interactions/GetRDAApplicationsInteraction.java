@@ -1,21 +1,14 @@
 package com.ardakaplan.rdagoogleplayappslib.interactions;
 
-import android.content.Context;
-
 import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
+import com.ardakaplan.rdagoogleplayappslib.service.RDAGooglePlayApplicationsService;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteraction;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteractionResult;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteractionResultListener;
-import com.ardakaplan.rdalibrary.helpers.RDAJsonHelpers;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.ardakaplan.rdaretrofitlib.RDARequestListener;
+import com.ardakaplan.rdaretrofitlib.RequestErrorConverter;
+import com.ardakaplan.rdaretrofitlib.exceptions.RDARequestException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -25,46 +18,62 @@ import javax.inject.Inject;
  */
 public class GetRDAApplicationsInteraction extends RDAInteraction<RDAInteractionResult.Empty, List<RDAGooglePlayApplication>> {
 
-    private Context context;
+    private RDAGooglePlayApplicationsService rdaGooglePlayApplicationsService;
+
 
     @Inject
-    GetRDAApplicationsInteraction(Context context) {
+    GetRDAApplicationsInteraction(RDAGooglePlayApplicationsService rdaGooglePlayApplicationsService) {
 
-        this.context = context;
+        this.rdaGooglePlayApplicationsService = rdaGooglePlayApplicationsService;
     }
 
     @Override
     public void execute(RDAInteractionResultListener<List<RDAGooglePlayApplication>> rdaInteractionResultListener) {
 
-        String source = loadAppsFromLocale();
+//        String source = loadAppsFromLocale();
+//
+//        Type collectionType = new TypeToken<List<RDAGooglePlayApplication>>() {
+//        }.getType();
+//
+//        ArrayList<RDAGooglePlayApplication> objects = (ArrayList<RDAGooglePlayApplication>) RDAJsonHelpers.jsonToList(source, collectionType);
+//
+//
+//        rdaInteractionResultListener.onResult(new RDAInteractionResult<>(objects));
 
-        Type collectionType = new TypeToken<List<RDAGooglePlayApplication>>() {
-        }.getType();
+        rdaGooglePlayApplicationsService.getRDAGooglePlayApplications(new RDARequestListener<List<RDAGooglePlayApplication>>() {
 
-        ArrayList<RDAGooglePlayApplication> objects = (ArrayList<RDAGooglePlayApplication>) RDAJsonHelpers.jsonToList(source, collectionType);
+            @Override
+            public void onSuccess(List<RDAGooglePlayApplication> googlePlayApplications) {
 
+                rdaInteractionResultListener.onResult(new RDAInteractionResult<>(googlePlayApplications));
+            }
 
-        rdaInteractionResultListener.onResult(new RDAInteractionResult<>(objects));
+            @Override
+            public void onError(RDARequestException rdaRequestException) {
+
+                rdaInteractionResultListener.onResult(new RDAInteractionResult<>(RequestErrorConverter.convertExceptions(rdaRequestException)));
+            }
+        });
     }
 
-    public String loadAppsFromLocale() {
-        String tContents = "";
-
-        try {
-            InputStream stream = context.getAssets().open("apps.json");
-
-            int size = stream.available();
-            byte[] buffer = new byte[size];
-            stream.read(buffer);
-            stream.close();
-            tContents = new String(buffer);
-        } catch (IOException e) {
-            // Handle exceptions here
-        }
-
-        return tContents;
-
-    }
+//    public String loadAppsFromLocale() {
+//        String tContents = "";
+//
+//        try {
+//            InputStream stream = context.getAssets().open("apps.json");
+//
+//            int size = stream.available();
+//            byte[] buffer = new byte[size];
+//            stream.read(buffer);
+//            stream.close();
+//            tContents = new String(buffer);
+//        } catch (IOException e) {
+//            // Handle exceptions here
+//        }
+//
+//        return tContents;
+//
+//    }
 
 
 }

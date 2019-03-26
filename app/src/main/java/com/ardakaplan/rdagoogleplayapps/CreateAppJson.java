@@ -20,7 +20,7 @@ public class CreateAppJson {
 
     private static List<RDAGooglePlayApplication> getLocalData() {
 
-        String iconRootFolder = "http://www.ardakaplan.com/ardroid/app_icons/";
+        String iconRootFolder = "http://www.ardakaplan.com/rdaapps/icons/";
 
         List<RDAGooglePlayApplication> list = new ArrayList<>();
 
@@ -140,7 +140,7 @@ public class CreateAppJson {
                 -1,
                 "Hatırlatma oluşturma aracı",
                 "You can easily create notes for your own.",
-                iconRootFolder + "arda_kaplan_icon.png"));
+                iconRootFolder + "notify_icon.png"));
 
         return list;
 
