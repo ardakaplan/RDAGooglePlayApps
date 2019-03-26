@@ -44,7 +44,7 @@ ext {
     rda_logger_version = "1.0.0"
     rda_lib_version = "99884df688"
     rda_google_play_apps_lib_version = "1.0.0"
-    rda_retrofit_lib_version = "ccbbac3058"
+    rda_retrofit_lib_version = "0.0.0.11"
 
     //COMMAND ON LOCAL.PROPERTIES
     use_rda_lib_from_local = properties != null ? Boolean.valueOf(localProperties.getProperty("use_rda_lib_from_local")) : false
