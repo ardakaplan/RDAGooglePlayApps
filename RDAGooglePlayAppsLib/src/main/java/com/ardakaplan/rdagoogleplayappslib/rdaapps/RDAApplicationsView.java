@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.ardakaplan.rdagoogleplayappslib.R;
 import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
+import com.ardakaplan.rdalibrary.base.ui.dialogs.RDAProgressDialog;
 import com.ardakaplan.rdalibrary.base.ui.views.custom.RDAView;
 import com.ardakaplan.rdalibrary.helpers.RDAApplicationHelpers;
 import com.ardakaplan.rdalibrary.helpers.RDAIntentHelpers;
@@ -31,6 +32,7 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends R
     Integer itemLayoutId;
     private @ColorRes
     int installedAppBackgroundColorId;
+    private RDAProgressDialog rdaProgressDialog;
 
     @Inject
     public RDAApplicationsView(VH viewHolder, RDAApplicationsContract.Presenter presenter, RDAApplicationsRecyclerViewAdapter rdaApplicationsRecyclerViewAdapter,
@@ -53,6 +55,10 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends R
         setRecyclerView();
 
         presenter.attach(this);
+    }
+
+    public void setRdaProgressDialog(RDAProgressDialog rdaProgressDialog) {
+        this.rdaProgressDialog = rdaProgressDialog;
     }
 
     public void setItemDecoration(RecyclerView.ItemDecoration itemDecoration) {
@@ -89,11 +95,19 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends R
     @Override
     public void showProgress() {
 
+        if (rdaProgressDialog != null) {
+
+            rdaProgressDialog.show();
+        }
     }
 
     @Override
     public void hideProgress() {
 
+        if (rdaProgressDialog != null) {
+
+            rdaProgressDialog.dismiss();
+        }
     }
 
     @Override

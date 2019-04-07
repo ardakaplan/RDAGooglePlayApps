@@ -13,6 +13,7 @@ import com.ardakaplan.rdalibrary.base.ui.adapters.RDARecyclerViewAdapter;
 import com.ardakaplan.rdalibrary.base.ui.views.fontables.RDATextView;
 import com.ardakaplan.rdalibrary.helpers.RDAApplicationHelpers;
 import com.ardakaplan.rdalibrary.interfaces.RDAItemClickListener;
+import com.ardakaplan.rdalibrary.managers.LanguageManager;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -31,15 +32,18 @@ public class RDAApplicationsRecyclerViewAdapter extends RDARecyclerViewAdapter<R
     RDAApplicationHelpers rdaApplicationHelpers;
 
     @Inject
+    LanguageManager languageManager;
+
+    @Inject
     RDAApplicationsRecyclerViewAdapter() {
 
     }
 
-    public void setRdaItemClickListener(RDAItemClickListener<RDAGooglePlayApplication> rdaItemClickListener) {
+    void setRdaItemClickListener(RDAItemClickListener<RDAGooglePlayApplication> rdaItemClickListener) {
         this.rdaItemClickListener = rdaItemClickListener;
     }
 
-    public void setInstalledAppBackgroundColorId(int installedAppBackgroundColorId) {
+    void setInstalledAppBackgroundColorId(int installedAppBackgroundColorId) {
         this.installedAppBackgroundColorId = installedAppBackgroundColorId;
     }
 
@@ -48,8 +52,18 @@ public class RDAApplicationsRecyclerViewAdapter extends RDARecyclerViewAdapter<R
 
         RDAGooglePlayApplication rdaGooglePlayApplication = getItem(position);
 
-        holder.nameTextView.setText(rdaGooglePlayApplication.getNameTurkish());
-        holder.descriptionTextView.setText(rdaGooglePlayApplication.getDescriptionTurkish());
+        if (languageManager.getSelectedLanguage().equals(LanguageManager.Language.TURKISH)) {
+
+            holder.nameTextView.setText(rdaGooglePlayApplication.getNameTurkish());
+
+            holder.descriptionTextView.setText(rdaGooglePlayApplication.getDescriptionTurkish());
+
+        } else {
+
+            holder.nameTextView.setText(rdaGooglePlayApplication.getNameEnglish());
+
+            holder.descriptionTextView.setText(rdaGooglePlayApplication.getDescriptionEnglish());
+        }
 
         Picasso.with(holder.itemView.getContext()).load(rdaGooglePlayApplication.getIconUrl()).into(holder.appLogoImageView);
 

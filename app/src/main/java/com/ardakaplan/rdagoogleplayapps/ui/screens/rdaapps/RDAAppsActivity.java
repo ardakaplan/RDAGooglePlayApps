@@ -8,6 +8,7 @@ import android.support.v7.widget.DividerItemDecoration;
 
 import com.ardakaplan.rdagoogleplayapps.R;
 import com.ardakaplan.rdagoogleplayapps.ui.BaseActivity;
+import com.ardakaplan.rdagoogleplayapps.ui.dialogs.TestProgressDialog;
 import com.ardakaplan.rdagoogleplayappslib.rdaapps.RDAApplicationsView;
 import com.ardakaplan.rdagoogleplayappslib.rdaapps.RDAApplicationsViewHolder;
 
@@ -26,6 +27,8 @@ public class RDAAppsActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.rda_apps_activity);
 
+        TestProgressDialog testProgressDialog = new TestProgressDialog(this);
+
         DividerItemDecoration itemDecorator = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
 
         //noinspection ConstantConditions
@@ -36,6 +39,8 @@ public class RDAAppsActivity extends BaseActivity {
         rdaApplicationsView.setItemLayoutId(R.layout.rda_application_view_item);
 
         rdaApplicationsView.setInstalledAppBackgroundColorId(R.color.colorAccent);
+
+        rdaApplicationsView.setRdaProgressDialog(testProgressDialog);
 
         rdaApplicationsView.onViewCreated(findViewById(R.id.rdaAppsActivity_linearLayout_container));
     }
