@@ -1,6 +1,6 @@
 package com.ardakaplan.rdagoogleplayappslib.rdaapps;
 
-import android.support.annotation.ColorRes;
+import android.support.annotation.ColorInt;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -23,8 +23,8 @@ public class RDAApplicationsRecyclerViewAdapter extends RDARecyclerViewAdapter<R
     private @LayoutRes
     int itemLayoutId = R.layout.rda_application_view_item_lib;
 
-    private @ColorRes
-    int installedAppBackgroundColorId;
+    private @ColorInt
+    int installedAppBackgroundColor;
 
     private RDAItemClickListener<RDAGooglePlayApplication> rdaItemClickListener;
 
@@ -43,8 +43,8 @@ public class RDAApplicationsRecyclerViewAdapter extends RDARecyclerViewAdapter<R
         this.rdaItemClickListener = rdaItemClickListener;
     }
 
-    void setInstalledAppBackgroundColorId(int installedAppBackgroundColorId) {
-        this.installedAppBackgroundColorId = installedAppBackgroundColorId;
+    void setInstalledAppBackgroundColor(@ColorInt int installedAppBackgroundColor) {
+        this.installedAppBackgroundColor = installedAppBackgroundColor;
     }
 
     @Override
@@ -69,7 +69,7 @@ public class RDAApplicationsRecyclerViewAdapter extends RDARecyclerViewAdapter<R
 
         if (rdaApplicationHelpers.isApplicationInstalled(rdaGooglePlayApplication.getPackageName())) {
 
-            holder.itemView.setBackgroundColor(holder.itemView.getContext().getResources().getColor(installedAppBackgroundColorId));
+            holder.itemView.setBackgroundColor(installedAppBackgroundColor);
 
         } else {
 

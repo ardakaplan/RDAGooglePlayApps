@@ -1,6 +1,7 @@
 package com.ardakaplan.rdagoogleplayapps.ui.screens.rdaapps;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -38,7 +39,7 @@ public class RDAAppsActivity extends BaseActivity {
 
         rdaApplicationsView.setItemLayoutId(R.layout.rda_application_view_item);
 
-        rdaApplicationsView.setInstalledAppBackgroundColorId(R.color.colorAccent);
+        rdaApplicationsView.setInstalledAppBackgroundColor(Color.RED);
 
         rdaApplicationsView.setRdaProgressDialog(testProgressDialog);
 
