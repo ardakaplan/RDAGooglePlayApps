@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+
+    defaultConfig {
+
+        applicationId "com.ardakaplan.rdagoogleplayapps"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation project(':RDAGooglePlayAppsLib')
+
+    //ANDROID SUPPORT
+    implementation "com.android.support:appcompat-v7:$android_support_version"
+
+    //BUTTER KNIFE
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butter_knife_version"
+
+    //DAGGER
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //RDA LIB
+    if (use_rda_lib_local) {
+
+        println("RDALibray -> LOCAL COPY")
+
+        implementation files(devDir + '/' + RDA_LIB_AAR_NAME)
+
+        //ANDROID SUPPORT
+        implementation "com.android.support:appcompat-v7:$android_support_version"
+        implementation "com.android.support:recyclerview-v7:$android_support_version"
+        implementation "com.android.support:cardview-v7:$android_support_version"
+
+        //SWIPE LIST
+        implementation "com.daimajia.swipelayout:library:$swipe_layout_version"
+
+        //RDA-LOGGER
+        implementation "com.github.ardakaplan:RDALogger:$rda_logger_version"
+
+        //BUTTER KNIFE
+        implementation "com.jakewharton:butterknife:$butter_knife_version"
+
+        //DAGGER
+        implementation "com.google.dagger:dagger:$dagger_version"
+        implementation "com.google.dagger:dagger-android-support:$dagger_version"
+        annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+        annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
+    } else {
+
+        println("RDALibray -> CLOUD")
+
+        implementation "com.github.ardakaplan:RDALibrary:$rda_lib_version"
+    }
+
+    //RDA GOOGLE PLAY APPS
+    implementation "com.github.ardakaplan:RDARetrofit:$rda_retrofit_lib_version"
+}

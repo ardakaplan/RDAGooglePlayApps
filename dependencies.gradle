@@ -1,13 +1,22 @@
-File localProperties = file('aar.properties')
-Properties properties = null
-if (localProperties.exists()) {
-    properties = new Properties()
-    properties.load(file('aar.properties').newDataInputStream())
+////AAR FILE
+//File aarFile = file('aar.properties')
+//Properties aarProperties = null
+//if (aarFile.exists()) {
+//    aarProperties = new Properties()
+//    aarProperties.load(file('aar.properties').newDataInputStream())
+//}
+
+//LOCAL FILE
+File localFile = file('local.properties')
+Properties localProperties = null
+if (localFile.exists()) {
+    localProperties = new Properties()
+    localProperties.load(file('local.properties').newDataInputStream())
 }
 
 ext {
 
-    devDir = properties != null ? properties.getProperty("aar.dir") : null
+    devDir = localProperties != null ? localProperties.getProperty("aar.dir") : null
     println('AAR dir is: ' + devDir)
 
     //Android Base
@@ -28,56 +37,26 @@ ext {
 
     //RDA LIBS NAME
     RDA_LIB_AAR_NAME = "/RDALibrary-debug.aar"
+    RDA_GOOGLE_PLAY_APPS_LIB_AAR_NAME = "/RDAGooglePlayAppsLib-debug.aar"
+    RDA_RETROFIT_AAR_NAME = "/RDARetrofitLib-debug.aar"
 
     //RDA LIBS VERSION
     rda_logger_version = "1.0.0"
+    rda_lib_version = "85b1bb1837"
+    rda_retrofit_lib_version = "1.0.3"
+
+    //COMMAND ON LOCAL.PROPERTIES
+    use_rda_lib_from_local = properties != null ? Boolean.valueOf(localProperties.getProperty("use_rda_lib_from_local")) : false
+    use_rda_google_play_lib_from_local = properties != null ? Boolean.valueOf(localProperties.getProperty("use_rda_google_play_lib_from_local")) : false
+    use_rda_retrofit_from_local = properties != null ? Boolean.valueOf(localProperties.getProperty("use_rda_retrofit_from_local")) : false
 
     //FILE EXISTANCE
     rda_lib_exists = file(devDir + RDA_LIB_AAR_NAME).exists()
+    rda_google_play_apps_lib_exists = file(devDir + RDA_GOOGLE_PLAY_APPS_LIB_AAR_NAME).exists()
+    rda_retrofit_lib_exists = file(devDir + RDA_RETROFIT_AAR_NAME).exists()
 
     //USE LOCAL ADJUSTMENT
-    use_local = true
-
-    use_rda_lib_local = use_local && rda_lib_exists
+    use_rda_lib_local = use_rda_lib_from_local && rda_lib_exists
+    use_rda_google_play_apps_lib_local = use_rda_google_play_lib_from_local && rda_google_play_apps_lib_exists
+    use_retrofit_lib_local = use_rda_retrofit_from_local && rda_retrofit_lib_exists
 }
-
-//task('clearDpendencyCache', type: Delete, group: 'MyGroup',
-//        description: "Deletes any cached artifacts with the domain of com.matriks.internal in the Gradle cache directory.") {
-//    doLast {
-//        if (devDir != null) {
-//
-//            def userHome = System.getProperty('user.home')
-//            def baseCashPath = "${userHome}/.gradle/caches/modules-2/files-2.1/"
-//
-//            def baseDir = new File(baseCashPath)
-//
-//            println('Find cached libs')
-//            def fileList = []
-//            baseDir.eachDir { file ->
-//                if (file.name.startsWith('com.matriks')) {
-//                    fileList.add(file)
-//                }
-//            }
-//
-//            println('Delete all cached libs')
-//            fileList.each {
-//                it.deleteDir()
-//            }
-//
-//
-//            println('Delete idea libraries')
-//            new File(".idea/libraries").eachFile(FileType.FILES) { file ->
-//                if (file.name.contains('com_matriks_internal')) {
-//                    file.delete()
-//                }
-//            }
-//        }
-//    }
-//
-//}
-
-//clean.dependsOn clearDpendencyCache
-
-
-
-
