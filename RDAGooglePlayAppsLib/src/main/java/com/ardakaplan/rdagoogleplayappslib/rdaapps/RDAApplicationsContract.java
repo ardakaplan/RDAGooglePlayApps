@@ -1,8 +1,8 @@
 package com.ardakaplan.rdagoogleplayappslib.rdaapps;
 
 import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
-import com.ardakaplan.rdalibrary.base.ui.screen.RDAPresenterContract;
-import com.ardakaplan.rdalibrary.base.ui.screen.RDAViewContract;
+import com.ardakaplan.rdalibrary.base.ui.screen.presenters.RDAPresenterContract;
+import com.ardakaplan.rdalibrary.base.ui.screen.views.RDAViewContract;
 
 import java.util.List;
 

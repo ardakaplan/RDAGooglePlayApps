@@ -12,7 +12,6 @@ import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
 import com.ardakaplan.rdalibrary.base.ui.adapters.RDARecyclerViewAdapter;
 import com.ardakaplan.rdalibrary.base.ui.views.fontables.RDATextView;
 import com.ardakaplan.rdalibrary.helpers.RDAApplicationHelpers;
-import com.ardakaplan.rdalibrary.interfaces.RDAItemClickListener;
 import com.ardakaplan.rdalibrary.managers.LanguageManager;
 import com.squareup.picasso.Picasso;
 
@@ -26,8 +25,6 @@ public class RDAApplicationsRecyclerViewAdapter extends RDARecyclerViewAdapter<R
     private @ColorInt
     int installedAppBackgroundColor;
 
-    private RDAItemClickListener<RDAGooglePlayApplication> rdaItemClickListener;
-
     @Inject
     RDAApplicationHelpers rdaApplicationHelpers;
 
@@ -37,10 +34,6 @@ public class RDAApplicationsRecyclerViewAdapter extends RDARecyclerViewAdapter<R
     @Inject
     RDAApplicationsRecyclerViewAdapter() {
 
-    }
-
-    void setRdaItemClickListener(RDAItemClickListener<RDAGooglePlayApplication> rdaItemClickListener) {
-        this.rdaItemClickListener = rdaItemClickListener;
     }
 
     void setInstalledAppBackgroundColor(@ColorInt int installedAppBackgroundColor) {

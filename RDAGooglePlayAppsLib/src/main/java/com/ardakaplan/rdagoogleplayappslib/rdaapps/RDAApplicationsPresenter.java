@@ -4,7 +4,7 @@ import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
 import com.ardakaplan.rdagoogleplayappslib.interactions.GetRDAApplicationsInteraction;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteractionResult;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteractionResultListener;
-import com.ardakaplan.rdalibrary.base.ui.screen.RDAPresenter;
+import com.ardakaplan.rdalibrary.base.ui.screen.presenters.RDAPresenter;
 
 import java.util.List;
 

@@ -4,11 +4,7 @@ import com.ardakaplan.rdagoogleplayapps.di.AppComponent;
 import com.ardakaplan.rdagoogleplayapps.di.DaggerAppComponent;
 import com.ardakaplan.rdalibrary.base.objects.RDAApplication;
 import com.ardakaplan.rdalibrary.di.HasCustomActivityInjector;
-import com.ardakaplan.rdalogger.RDALogger;
 import com.ardakaplan.rdaretrofitlib.retrofit.RDARetrofitProvider;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -17,15 +13,21 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 public class TestApplication extends RDAApplication implements HasCustomActivityInjector {
 
-    private static AppComponent appComponent;
-
     @Override
     public void onCreate() {
         super.onCreate();
 
-        RDALogger.start(getString(R.string.app_name)).enableLogging(true);
-
         initRDARetrofitLib();
+    }
+
+    @Override
+    protected String getRDALoggerTag() {
+        return getString(R.string.app_name);
+    }
+
+    @Override
+    protected boolean doesRDALoggerWork() {
+        return true;
     }
 
     private void initRDARetrofitLib() {
@@ -37,8 +39,13 @@ public class TestApplication extends RDAApplication implements HasCustomActivity
     @Override
     protected void initDagger() {
 
-        appComponent = DaggerAppComponent.builder().application(this).build();
+        AppComponent appComponent = DaggerAppComponent.builder().application(this).build();
 
         appComponent.inject(this);
+    }
+
+    @Override
+    protected void initRDADialog() {
+
     }
 }
