@@ -20,13 +20,13 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <com.ardakaplan.rdalibrary.base.ui.views.fontables.RDATextView
+        <TextView
             android:id="@+id/applicationView_textView_appName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="ARDA" />
 
-        <com.ardakaplan.rdalibrary.base.ui.views.fontables.RDATextView
+        <TextView
             android:id="@+id/applicationView_textView_appDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

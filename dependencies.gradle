@@ -34,6 +34,7 @@ ext {
     retrofit_converter_gson_version = "2.4.0"
     retrofit_converter_scalars_version = "2.4.0"
     okhttp3_logging_interceptor_version = "3.10.0"
+    picasso_version="2.5.2"
 
     //RDA LIBS NAME
     RDA_LIB_AAR_NAME = "/RDALibrary-debug.aar"
@@ -42,7 +43,7 @@ ext {
 
     //RDA LIBS VERSION
     rda_logger_version = "1.0.0"
-    rda_lib_version = "1.1.2"
+    rda_lib_version = "1.1.1"
     rda_retrofit_lib_version = "1.0.5"
 
     //COMMAND ON LOCAL.PROPERTIES

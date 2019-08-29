@@ -62,10 +62,12 @@ dependencies {
         implementation "com.jakewharton:butterknife:$butter_knife_version"
 
         //DAGGER
-        implementation "com.google.dagger:dagger:$dagger_version"
-        implementation "com.google.dagger:dagger-android-support:$dagger_version"
-        annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
-        annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+        api "com.google.dagger:dagger:$dagger_version"
+        api("com.google.dagger:dagger-android-support:$dagger_version") {
+            exclude group: 'com.android.support', module: 'support-fragment'
+            exclude group: 'com.android.support', module: 'support-annotations'
+            exclude group: 'com.android.support', module: 'appcompat-v7'
+        }
 
     } else {
 
@@ -73,7 +75,4 @@ dependencies {
 
         implementation "com.github.ardakaplan:RDALibrary:$rda_lib_version"
     }
-
-    //RDA GOOGLE PLAY APPS
-    implementation "com.github.ardakaplan:RDARetrofit:$rda_retrofit_lib_version"
 }
