@@ -12,6 +12,7 @@ import com.ardakaplan.rdagoogleplayapps.ui.BaseActivity;
 import com.ardakaplan.rdagoogleplayapps.ui.dialogs.TestProgressDialog;
 import com.ardakaplan.rdagoogleplayappslib.rdaapps.RDAApplicationsView;
 import com.ardakaplan.rdagoogleplayappslib.rdaapps.RDAApplicationsViewHolder;
+import com.ardakaplan.rdalibrary.base.ui.screen.presenters.RDAPresenterContract;
 
 import javax.inject.Inject;
 
@@ -26,7 +27,7 @@ public class RDAAppsActivity extends BaseActivity {
     @SuppressLint("MissingSuperCall")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState, R.layout.rda_apps_activity);
+        super.onCreate(savedInstanceState);
 
         TestProgressDialog testProgressDialog = new TestProgressDialog(this);
 
@@ -44,5 +45,15 @@ public class RDAAppsActivity extends BaseActivity {
         rdaApplicationsView.setRdaProgressDialog(testProgressDialog);
 
         rdaApplicationsView.onViewCreated(findViewById(R.id.rdaAppsActivity_linearLayout_container));
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.rda_apps_activity;
+    }
+
+    @Override
+    public RDAPresenterContract getPresenterContract() {
+        return null;
     }
 }

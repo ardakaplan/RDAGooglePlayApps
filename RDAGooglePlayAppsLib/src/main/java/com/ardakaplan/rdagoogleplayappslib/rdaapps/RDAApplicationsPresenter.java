@@ -4,7 +4,7 @@ import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
 import com.ardakaplan.rdagoogleplayappslib.interactions.GetRDAApplicationsInteraction;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteractionResult;
 import com.ardakaplan.rdalibrary.base.interactions.RDAInteractionResultListener;
-import com.ardakaplan.rdalibrary.base.ui.screen.RDAPresenter;
+import com.ardakaplan.rdalibrary.base.ui.screen.presenters.RDAPresenter;
 
 import java.util.List;
 
@@ -42,11 +42,23 @@ public class RDAApplicationsPresenter extends RDAPresenter<RDAApplicationsContra
             @Override
             public void onResult(RDAInteractionResult<List<RDAGooglePlayApplication>> rdaInteractionResult) {
 
-                if (getView() != null) {
+                if (rdaInteractionResult.isSuccess()) {
 
-                    getView().hideProgress();
+                    if (getView() != null) {
 
-                    getView().showRDAGooglePlayApplications(rdaInteractionResult.getOut());
+                        getView().hideProgress();
+
+                        getView().showRDAGooglePlayApplications(rdaInteractionResult.getOut());
+                    }
+
+                } else {
+
+                    if (getView() != null) {
+
+                        getView().hideProgress();
+
+                        getView().showError(rdaInteractionResult.getException());
+                    }
                 }
             }
         });
