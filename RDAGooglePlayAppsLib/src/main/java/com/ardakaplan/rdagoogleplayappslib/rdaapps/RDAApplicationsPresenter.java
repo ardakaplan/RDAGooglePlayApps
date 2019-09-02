@@ -42,11 +42,23 @@ public class RDAApplicationsPresenter extends RDAPresenter<RDAApplicationsContra
             @Override
             public void onResult(RDAInteractionResult<List<RDAGooglePlayApplication>> rdaInteractionResult) {
 
-                if (getView() != null) {
+                if (rdaInteractionResult.isSuccess()) {
 
-                    getView().hideProgress();
+                    if (getView() != null) {
 
-                    getView().showRDAGooglePlayApplications(rdaInteractionResult.getOut());
+                        getView().hideProgress();
+
+                        getView().showRDAGooglePlayApplications(rdaInteractionResult.getOut());
+                    }
+
+                } else {
+
+                    if (getView() != null) {
+
+                        getView().hideProgress();
+
+                        getView().showError(rdaInteractionResult.getException());
+                    }
                 }
             }
         });

@@ -6,15 +6,18 @@ import android.support.v7.widget.RecyclerView;
 
 import com.ardakaplan.rdagoogleplayappslib.R;
 import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
+import com.ardakaplan.rdalibrary.base.exceptions.RDAInteractionException;
 import com.ardakaplan.rdalibrary.base.ui.dialogs.RDAProgressDialog;
 import com.ardakaplan.rdalibrary.base.ui.views.custom.RDAView;
 import com.ardakaplan.rdalibrary.helpers.RDAApplicationHelpers;
 import com.ardakaplan.rdalibrary.helpers.RDAIntentHelpers;
 import com.ardakaplan.rdalibrary.interfaces.RDAItemClickListener;
+import com.ardakaplan.rdalogger.RDALogger;
 
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.xml.transform.ErrorListener;
 
 /**
  * Created by Arda Kaplan on 15-Mar-19 - 19:53
@@ -33,6 +36,9 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends R
     private @ColorInt
     int installedAppBackgroundColor;
     private RDAProgressDialog rdaProgressDialog;
+
+    //hata alındığında uygulamaya haber vermek için
+    private RequestErrorListener requestErrorListener;
 
     @Inject
     public RDAApplicationsView(VH viewHolder, RDAApplicationsContract.Presenter presenter, RDAApplicationsRecyclerViewAdapter rdaApplicationsRecyclerViewAdapter,
@@ -55,6 +61,10 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends R
         setRecyclerView();
 
         presenter.attach(this);
+    }
+
+    public void setRequestErrorListener(RequestErrorListener requestErrorListener) {
+        this.requestErrorListener = requestErrorListener;
     }
 
     public void setRdaProgressDialog(RDAProgressDialog rdaProgressDialog) {
@@ -111,6 +121,12 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends R
     }
 
     @Override
+    public void showError(RDAInteractionException e) {
+
+        requestErrorListener.onError(e);
+    }
+
+    @Override
     public void showRDAGooglePlayApplications(List<RDAGooglePlayApplication> rdaGooglePlayApplications) {
 
         rdaApplicationsRecyclerViewAdapter.setData(rdaGooglePlayApplications);
@@ -134,4 +150,10 @@ public class RDAApplicationsView<VH extends RDAApplicationsViewHolder> extends R
             rdaIntentHelpers.openGooglePlayPage(rdaGooglePlayApplication.getPackageName());
         }
     }
+
+    public interface RequestErrorListener {
+
+        void onError(RDAInteractionException e);
+    }
+
 }

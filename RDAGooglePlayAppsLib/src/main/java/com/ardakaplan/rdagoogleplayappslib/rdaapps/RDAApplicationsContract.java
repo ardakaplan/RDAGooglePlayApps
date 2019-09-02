@@ -1,6 +1,7 @@
 package com.ardakaplan.rdagoogleplayappslib.rdaapps;
 
 import com.ardakaplan.rdagoogleplayappslib.RDAGooglePlayApplication;
+import com.ardakaplan.rdalibrary.base.exceptions.RDAInteractionException;
 import com.ardakaplan.rdalibrary.base.ui.screen.presenters.RDAPresenterContract;
 import com.ardakaplan.rdalibrary.base.ui.screen.views.RDAViewContract;
 
@@ -13,6 +14,8 @@ public class RDAApplicationsContract {
         void showProgress();
 
         void hideProgress();
+
+        void showError(RDAInteractionException e);
 
         void showRDAGooglePlayApplications(List<RDAGooglePlayApplication> rdaGooglePlayApplications);
     }
