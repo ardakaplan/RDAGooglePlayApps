@@ -75,4 +75,24 @@ dependencies {
 
         implementation "com.github.ardakaplan:RDALibrary:$rda_lib_version"
     }
+
+    //RDA RETROFIT
+    if (use_rda_retrofit_from_local) {
+
+        println("RDARetrofitLibray -> LOCAL COPY")
+
+        implementation files(devDir + '/' + RDA_RETROFIT_AAR_NAME)
+
+        //RETROFIT
+        implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+        implementation "com.squareup.retrofit2:converter-gson:$retrofit_converter_gson_version"
+        implementation "com.squareup.retrofit2:converter-scalars:$retrofit_converter_scalars_version"
+        implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_logging_interceptor_version"
+
+    } else {
+
+        println("RDARetrofitLibray -> CLOUD")
+
+        implementation "com.github.ardakaplan:RDARetrofit:$rda_retrofit_lib_version"
+    }
 }
